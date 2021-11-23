@@ -1,5 +1,21 @@
 <div class="container bg-warning">
   <p>Componente user-single</p>
   <button>Vedi user-detail</button>
+  <div class="container" *ngFor="let user of users">
+    <div class="col">
+      <p>{{ user.id }}</p>
+      <p>{{ user.name }}</p>
+      <p>{{ user.surname }}</p>
+      <p>{{ user.age}}</p>
+      <p>{{ user.dateOfBirth }}</p>
+      <p><strong>Address:</strong></p>
+      <p>{{ user?.address?.city }}</p>
+      <p>{{ user?.address?.street }}</p>
+      <p>{{ user?.address?.postalCode }}</p>
+      <p>{{ user.role }}</p>
+      <p>{{ user.username }}</p>
+      <img src="{{user.profilePhotoUrl}}" alt="Foto profilo User">
+      <p>{{ user.gender }}</p>
+    </div>
+  </div>
 </div>
-
