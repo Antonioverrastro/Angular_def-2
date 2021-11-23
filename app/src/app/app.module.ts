@@ -11,6 +11,7 @@ import { OrderContainerComponent } from './order-container/order-container.compo
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderSingleComponent } from './order-single/order-single.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     OrderContainerComponent,
     OrderListComponent,
     OrderSingleComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
