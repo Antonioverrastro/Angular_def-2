@@ -1,18 +1,4 @@
-<div class="container navbar">
-  <p>App-component</p>
-  <div class="row">
-    <button>Utenti</button>
-    <button>Order</button>
-  </div>
-</div>
+<app-navbar></app-navbar>
 <div class="container bg-secondary">
-  <div class="row">
-    <div class="col">
-      <!-- Da visualizzare per primo -->
-      <app-user-container></app-user-container>
-    </div>
-    <div class="col">
-      <app-order-container></app-order-container>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>

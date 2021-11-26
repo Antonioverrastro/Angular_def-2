@@ -67,7 +67,7 @@ export class UserContainerComponent implements OnInit {
   }
 
   exportUsers(users: User[]){
-    this.users;
+    users = this.users;
   }
 }
 

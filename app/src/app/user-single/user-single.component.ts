@@ -10,7 +10,7 @@ import { User } from '../models/user';
 
 export class UserSingleComponent implements OnInit {
 
-  @Input() users!: User[];
+  @Input() users?: User[];
 
   constructor() { }
 

@@ -1,6 +1,6 @@
 <div class="container bg-warning">
   <p>Componente user-single</p>
-  <button>Vedi user-detail</button>
+
   <div class="container" *ngFor="let user of users">
     <div class="col">
       <p>{{ user.id }}</p>
@@ -16,6 +16,7 @@
       <p>{{ user.username }}</p>
       <img src="{{user.profilePhotoUrl}}" alt="Foto profilo User">
       <p>{{ user.gender }}</p>
+      <button>Vedi user-detail</button>
     </div>
   </div>
 </div>

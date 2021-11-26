@@ -7,7 +7,7 @@ import { User } from '../models/user';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  @Input() users?: User[];
+  @Input() users!: User[];
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class UserListComponent implements OnInit {
   }
 
   exportUsers(users: User[]){
-    this.users;
+    return this.users;
   }
 }
