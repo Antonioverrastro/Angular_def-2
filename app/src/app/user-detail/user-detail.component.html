@@ -1,21 +1,25 @@
-<div class="container bg-warning">
+<div class="container bg-pers">
   <p>user-detail</p>
   <div class="container">
     <div class="col" *ngFor="let user of users">
-      <p>{{ user.id }}</p>
-    <p>{{ user.name }}</p>
-    <p>{{ user.surname }}</p>
-    <p>{{user.age}}</p>
-    <p>{{user.dateOfBirth | date:"dd-MMM-yyyy"}}</p>
-    <p>Address:</p>
-    <p>{{user.address?.city}}</p>
-    <p>{{user.address?.street}}</p>
-    <p>{{user.address?.postalCode}}</p>
-    <p>{{user.role}}</p>
-    <p>{{user.username}}</p>
-    <img src="{{user.profilePhotoUrl}}" alt="Immagine profilo" class="img-min">
-    <p>{{user.gender}}</p>
-    <button (click)="close(users)">Chiudi</button>
+      <img
+        src="{{ user.profilePhotoUrl }}"
+        alt="Immagine profilo"
+        class="img-min"
+      />
+      <p><strong>ID:</strong> {{ user.id }}</p>
+      <p><strong>NAME:</strong> {{ user.name }}</p>
+      <p><strong>SURNAME:</strong> {{ user.surname }}</p>
+      <p><strong>AGE:</strong> {{ user.age }}</p>
+      <p><strong>DATE OF BIRTH:</strong>{{ user.dateOfBirth | date: "dd-MMM-yyyy" }}</p>
+      <p><strong>ADDRESS:</strong></p>
+      <p>{{ user.address?.street }}</p>
+      <p>{{ user.address?.postalCode }}</p>
+      <p>{{ user.address?.city }}</p>
+      <p><strong>ROLE:</strong> {{ user.role }}</p>
+      <p><strong>USERNAME:</strong> {{ user.username }}</p>
+      <p><strong>GENDER:</strong> {{ user.gender }}</p>
+      <button (click)="close(users)" class="btn-pers">CLOSE</button>
     </div>
   </div>
 </div>

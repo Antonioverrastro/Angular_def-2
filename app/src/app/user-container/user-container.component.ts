@@ -64,20 +64,20 @@ export class UserContainerComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  userList(): User[]{
+  userList(): User[] {
     return this.users;
   }
 
-  selectUser(user:User){
-    this.miniArray = this.users.filter((u)=> u.id == user.id);
+  selectUser(user: User) {
+    this.miniArray = this.users.filter((u) => u.id == user.id);
   }
 
-  shareUser(): User[]{
+  shareUser(): User[] {
     console.log(this.miniArray);
-    return this.miniArray
+    return this.miniArray;
   }
 
-  close(users: User){
-    this.miniArray = []
+  close(users: User) {
+    this.miniArray = [];
   }
 }

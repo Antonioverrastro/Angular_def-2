@@ -1,19 +1,28 @@
-<div class="container bg-warning">
+<div class="container bg-gr">
   <p>user-single</p>
   <div class="container brd-bl" *ngFor="let user of exportUsers">
-    <p>{{ user.id }}</p>
-    <p>{{ user.name }}</p>
-    <p>{{ user.surname }}</p>
-    <!-- <p>{{user.age}}</p>
-    <p>{{user.dateOfBirth}}</p>
-    <p>Address:</p>
-    <p>{{user.address?.city}}</p>
-    <p>{{user.address?.street}}</p>
-    <p>{{user.address?.postalCode}}</p>
-    <p>{{user.role}}</p>
-    <p>{{user.username}}</p>
-    <img src="{{user.profilePhotoUrl}}" alt="Immagine profilo" class="img-min">
-    <p>{{user.gender}}</p> -->
-    <button (click)="viewUser(user)">Visualizza</button>
+    <div class="row">
+      <div class="col">
+        <p><strong>ID:</strong> {{ user.id }}</p>
+        <p><strong>NAME:</strong> {{ user.name }}</p>
+        <p><strong>SURNAME:</strong> {{ user.surname }}</p>
+        <!-- <p>{{user.age}}</p>
+        <p>{{user.dateOfBirth}}</p>
+        <p>Address:</p>
+        <p>{{user.address?.city}}</p>
+        <p>{{user.address?.street}}</p>
+        <p>{{user.address?.postalCode}}</p>
+        <p>{{user.role}}</p>
+        <p>{{user.username}}</p>
+
+        <p>{{user.gender}}</p> -->
+        <button (click)="viewUser(user)" class="btn-pers">VIEW</button>
+      </div>
+      <div class="col">
+        <img src="{{user.profilePhotoUrl}}" alt="Immagine profilo" class="img-min">
+      </div>
+    </div>
+
+
   </div>
 </div>

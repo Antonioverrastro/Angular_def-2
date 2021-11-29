@@ -16,11 +16,11 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  userList(): User[]{
+  userList(): User[] {
     return this.exportUsers;
   }
 
-  viewUser(user: User){
-    this.selectUser.emit(user)
+  viewUser(user: User) {
+    this.selectUser.emit(user);
   }
 }

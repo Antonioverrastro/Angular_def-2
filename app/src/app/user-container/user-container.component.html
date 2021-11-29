@@ -4,7 +4,7 @@
     <div class="col">
       <app-user-list [exportUsers]="userList()" (selectUser)="selectUser($event)"></app-user-list>
     </div>
-    <div class="col" *ngIf="miniArray.length == 0;else selected"></div>
+    <div class="col" *ngIf="miniArray.length == 0; else selected"></div>
     <ng-template #selected>
       <div class="col">
         <app-user-detail [users]="shareUser()" (closeWindow)="close($event)"></app-user-detail>

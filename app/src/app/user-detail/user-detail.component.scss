@@ -1,3 +1,17 @@
-.img-min{
-  max-width: 20%;
+.bg-pers{
+  background-color: #c4c4c4;
+  padding: 50px;
+
+  .img-min{
+    max-width: 40%;
+  }
+
+  .btn-pers{
+    padding: 5px 35px 5px 35px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+  }
 }
+
+
