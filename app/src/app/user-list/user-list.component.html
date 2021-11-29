@@ -1,5 +1,8 @@
 <div class="container bg-success">
   <p>user-list</p>
-  <app-user-single [users]="exportUsers"></app-user-single>
+  <div class="container">
+      <app-user-single [exportUsers]="userList()" (selectUser)="viewUser($event)"></app-user-single>
+  </div>
+
 </div>
 

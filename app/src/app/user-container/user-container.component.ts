@@ -1,16 +1,15 @@
-import { Component, OnInit} from '@angular/core';
-import { User, Role, Gender} from '../models/user';
+import { Component, OnInit } from '@angular/core';
+import { User, Gender, Role } from '../models/user';
 
 @Component({
   selector: 'app-user-container',
   templateUrl: './user-container.component.html',
-  styleUrls: ['./user-container.component.scss']
+  styleUrls: ['./user-container.component.scss'],
 })
-
-
 export class UserContainerComponent implements OnInit {
+  miniArray: User[] = [];
 
-  users : User[]  = [
+  users: User[] = [
     {
       id: 3487,
       name: 'Mario',
@@ -61,14 +60,24 @@ export class UserContainerComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  userList(): User[]{
+    return this.users;
   }
 
-  exportUsers(users: User[]){
-    users = this.users;
+  selectUser(user:User){
+    this.miniArray = this.users.filter((u)=> u.id == user.id);
+  }
+
+  shareUser(): User[]{
+    console.log(this.miniArray);
+    return this.miniArray
+  }
+
+  close(users: User){
+    this.miniArray = []
   }
 }
-
-
