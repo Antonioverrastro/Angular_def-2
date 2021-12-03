@@ -7,6 +7,7 @@ import { CounterService } from '../shared/counter.service';
   styleUrls: ['./edit-counter.component.scss']
 })
 export class EditCounterComponent implements OnInit {
+  defaultTS!:number;
 
   constructor(private counterService: CounterService) { }
 
@@ -14,12 +15,10 @@ export class EditCounterComponent implements OnInit {
   }
 
   addTs(){
-    this.counterService.add();
+    this.counterService.add(this.defaultTS);
   }
 
   removeTs(){
-    this.counterService.remove();
+    this.counterService.remove(this.defaultTS);
   }
-
-
 }
