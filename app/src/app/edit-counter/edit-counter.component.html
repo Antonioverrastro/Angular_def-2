@@ -1,7 +1,6 @@
-<p>edit-counter works!</p>
 <div class="container">
   <div class="row">
-    <input type="number" name="value" id="value">
+    <input type="number" ngModel name="value" id="value" min="1" [(ngModel)]="default">
     <button type="submit" (click)="addTs()">+</button>
     <button type="submit" (click)="removeTs()">-</button>
   </div>

@@ -13,7 +13,7 @@ export class ShowCounterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  show(){
-    this.counterService.show();
+  showTs(){
+    return this.counterService.show();
   }
 }

@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CounterService } from './shared/counter.service';
 import { ShowCounterComponent } from './show-counter/show-counter.component';
 import { EditCounterComponent } from './edit-counter/edit-counter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditCounterComponent } from './edit-counter/edit-counter.component';
     EditCounterComponent,],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [CounterService],
   bootstrap: [AppComponent]

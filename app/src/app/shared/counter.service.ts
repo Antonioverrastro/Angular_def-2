@@ -1,3 +1,4 @@
+import { error } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,30 +9,19 @@ export class CounterService {
   default: number = 1;
 
   constructor() {}
-  show(): number {
+  show() {
     console.log(this.counter);
-    return this.counter;
-  }
-  add(value?: number): number {
-    if (value == null) {
-      this.counter += this.default;
+    if (this.counter >= 0) {
+      return this.counter;
     } else {
-      this.counter += value;
-    }
-    console.log(this.counter);
-    return this.counter;
-  }
-  remove(value?: number): number {
-    if (typeof value == 'undefined' && this.counter > 0) {
-      this.counter -= 1;
-    } else if (typeof value == 'number' && this.counter > 0) {
-      this.counter -= value;
-    } else {
-      console.log('Errore');
-    }
-    if (this.counter < 0) {
       this.counter = 0;
+      return 'error';
     }
-    return this.counter;
+  }
+  add(value: number): number {
+    return this.counter += value;
+  }
+  remove(value: number): number {
+    return this.counter -= value;
   }
 }
