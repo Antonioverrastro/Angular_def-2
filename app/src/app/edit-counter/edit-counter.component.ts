@@ -17,11 +17,11 @@ export class EditCounterComponent implements OnInit {
     this.default = this.counterService.default;
   }
 
-  addTs(value?: number){
+  addTs(){
     this.counterService.add(this.default);
   }
 
-  removeTs(value?: number){
+  removeTs(){
     this.counterService.remove(this.default);
   }
 }

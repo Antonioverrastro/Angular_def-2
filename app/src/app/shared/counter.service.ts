@@ -1,4 +1,3 @@
-import { error } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CounterService {
   private counter: number = 0;
-  default: number = 1;
+  default = 1;
 
   constructor() {}
   show() {
@@ -18,10 +17,10 @@ export class CounterService {
       return 'error';
     }
   }
-  add(value: number): number {
+  add(value: number = 1): number {
     return this.counter += value;
   }
-  remove(value: number): number {
+  remove(value: number= 1): number {
     return this.counter -= value;
   }
 }
