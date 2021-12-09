@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-order-single',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-single.component.scss']
 })
 export class OrderSingleComponent implements OnInit {
+  @Input() users!: User[];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  exportUsers(){
+    return this.users;
   }
 
 }
