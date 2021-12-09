@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../shared/counter.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-show-counter',
@@ -14,6 +15,6 @@ export class ShowCounterComponent implements OnInit {
   }
 
   showTs(){
-    return this.counterService.show();
+    return this.counterService.counter$;
   }
 }
