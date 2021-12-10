@@ -1,19 +1,50 @@
-<p>shop works!</p>
-<div class="container">
-  <div class="row justify-content-center">
-    <select name="name" id="name" required>
-      <option value="peroni">Peroni</option>
-      <option value="nastro">Heineken</option>
-      <option value="heineken">Ichnusa</option>
-      <option value="moretti">Moretti</option>
-      <option value="ichnusa">Nastro</option>
-    </select>
-    <select name="type" id="type" required>
-      <option value="small">Small</option>
-      <option value="medium">Medium</option>
-    </select>
+<div class="container mb-50">
+  <div class="row" *ngFor="let beer of beers">
+    <div class="col br-bl">
+      {{ beer.id }} -
+      {{ beer.name }}
+      {{ beer.price | currency: "EUR" }}
+    </div>
   </div>
-  <div class="row justify-content-center">
-    <button>Search</button>
+</div>
+<div class="container">
+  <form #myForm="ngForm">
+    <div class="row justify-content-center">
+      <select name="name" id="name" required [(ngModel)]="name">
+        <option disabled selected>Select beer</option>
+        <option *ngFor="let beer of beers" value="{{ beer.name }}">
+          {{ beer.name }}
+        </option>
+      </select>
+      <select name="type" id="type" required [(ngModel)]="type">
+        <option disabled selected>Select size</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+      </select>
+    </div>
+    <div class="row justify-content-center">
+      <button (click)="searchBeer(name!, type!)" [disabled]="!myForm.valid">
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="col" *ngIf="selectedBeer">
+    <div class="row">
+      <div class="col">
+        <p>{{ selectedBeer.id }}</p>
+      </div>
+      <div class="col">
+        <p>{{ selectedBeer.name }}</p>
+      </div>
+      <div class="col">
+        <p>{{ selectedBeer.type }}</p>
+      </div>
+      <div class="col">
+        <p>{{selectedBeer.price | currency: 'EUR' }}</p>
+      </div>
+    </div>
   </div>
 </div>

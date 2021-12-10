@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import {map} from 'rxjs/operators'
 
-import { Beer, Type } from '../models/beer';
+import { Beer } from '../models/beer';
+import { beerList } from './data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BeerService {
-  beers: Beer[] = [
-    { id: 1, type: Type.small, name: 'peroni', price: 1 },
-    { id: 2, type: Type.medium, name: 'peroni', price: 1.5 },
-    { id: 3, type: Type.small, name: 'nastro', price: 1.5 },
-    { id: 4, type: Type.medium, name: 'nastro', price: 2 },
-    { id: 5, type: Type.small, name: 'heineken', price: 2 },
-    { id: 6, type: Type.medium, name: 'heineken', price: 2.5 },
-    { id: 7, type: Type.small, name: 'moretti', price: 1.2 },
-    { id: 8, type: Type.medium, name: 'moretti', price: 1.5 },
-    { id: 9, type: Type.small, name: 'ichnusa', price: 1.4 },
-    { id: 10, type: Type.medium, name: 'ichnusa', price: 1.9 },
-  ];
+  private beers: Beer[] = beerList;
 
-  beerSubject = new BehaviorSubject<Beer[]>(this.beers);
+  private beerSubject = new BehaviorSubject<Beer[]>(this.beers);
+  beer$ = this.beerSubject.asObservable();
 
   constructor() {}
 
-  getAll() {
-    return this.beerSubject;
+  getAll(): Observable<Beer[]> {
+    return this.beer$;
   }
-  getBeer(b: Beer) {
-    this.beerSubject.next(this.beers.filter((beer)=> beer.id == b.id))
+  getBeerById(id: number) {
+    return this.beer$.pipe(
+      map((data) => data.find(beer => beer.id === id))
+    )
+  }
+  getBeer(name: string, type: string) {
+    return this.beerSubject.value.find(
+      (beer) => beer.name === name && beer.type === type
+    );
   }
 }
