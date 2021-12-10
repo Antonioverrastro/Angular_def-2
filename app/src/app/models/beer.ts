@@ -1,7 +1,6 @@
 export interface Beer {
   id: number;
-  type: "small | "medium";
+  type: "small" | "medium"
   name: string;
   price: number;
 }
-
