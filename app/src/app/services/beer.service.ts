@@ -25,7 +25,9 @@ export class BeerService {
   constructor() {}
 
   getAll() {
-    return this.beers;
+    return this.beerSubject;
   }
-  getId() {}
+  getBeer(b: Beer) {
+    this.beerSubject.next(this.beers.filter((beer)=> beer.id == b.id))
+  }
 }
