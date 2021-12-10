@@ -1,11 +1,11 @@
 export interface Beer {
-  id: number,
-  type: Type,
-  name: string,
-  price: number
-};
+  id: number;
+  type: Type;
+  name: string;
+  price: number;
+}
 
-export enum Type{
-  small: "small",
-  medium: "medium"
+export enum Type {
+  small = 'small',
+  medium = 'medium',
 }
