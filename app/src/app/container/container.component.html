@@ -1,0 +1,8 @@
+<p>container works!</p>
+<button (click)="getAllNames()">View</button>
+
+<div class="container" *ngFor="let c of countries">
+  <div class="row">
+    <p>{{ c.name }}</p>
+  </div>
+</div>
