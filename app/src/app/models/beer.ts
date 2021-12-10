@@ -9,3 +9,4 @@ export enum Type {
   small = 'small',
   medium = 'medium',
 }
+
