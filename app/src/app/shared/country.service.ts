@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { Country } from '../models/esapi';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CountryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getLeng() {}
 
   getAllNames() {
-    this.http.get<Country>('https://api.covid19api.com/');
+    return this.http.get('https://api.covid19api.com/').pipe(
+      map((data) => Object.keys(data)
+        )
+    );
+  }
+
+  getLength() {
+    return this.http
+      .get<number>('https://api.covid19api.com/')
+      .pipe(map((data) => Object.keys(data).length));
   }
 }

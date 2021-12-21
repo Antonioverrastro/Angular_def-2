@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-import { Country } from '../models/esapi';
+import { CountryService } from '../shared/country.service';
 
 @Component({
   selector: 'app-container',
@@ -9,15 +8,17 @@ import { Country } from '../models/esapi';
   styleUrls: ['./container.component.scss'],
 })
 export class ContainerComponent implements OnInit {
-  countries: Country[] = [];
+  countries!: string[];
+  numberCovid!: number;
 
-  constructor(private http: HttpClient) {}
+  constructor(private countryService: CountryService) {}
 
-  ngOnInit(): void {}
-
-  getLeng() {}
-
-  getAllNames() {
-    this.http.get<Country>('https://api.covid19api.com/');
+  ngOnInit() {
+    this.countryService
+      .getLength()
+      .subscribe((data) => (this.numberCovid = data));
+    this.countryService
+      .getAllNames()
+      .subscribe((data) => (this.countries = data));
   }
 }

@@ -1,8 +1,9 @@
-<p>container works!</p>
-<button (click)="getAllNames()">View</button>
-
-<div class="container" *ngFor="let c of countries">
-  <div class="row">
-    <p>{{ c.name }}</p>
+<div class="container">
+  <p><span><strong>Numero proprietà:</strong></span> {{numberCovid}}</p>
+  <div class="row text-center">
+    <p><span><strong>Lista: </strong></span> {{countries | json}}</p>
   </div>
 </div>
+
+
+
