@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+import {Covid, ICovid} from '../models/covid.model'
 
 @Injectable({
   providedIn: 'root',
@@ -8,18 +11,11 @@ import { map } from 'rxjs/operators';
 export class CountryService {
 
   constructor(private http: HttpClient) {}
-  getLeng() {}
 
-  getAllNames() {
-    return this.http.get('https://api.covid19api.com/').pipe(
-      map((data) => Object.keys(data)
-        )
-    );
-  }
-
-  getLength() {
-    return this.http
-      .get<number>('https://api.covid19api.com/')
-      .pipe(map((data) => Object.keys(data).length));
+  get(): Observable<Covid> {
+    return this.http.get<ICovid>('https://api.covid19api.com/')
+    .pipe(
+      map(data => Covid.Build(data))
+    )
   }
 }

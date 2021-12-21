@@ -10,15 +10,17 @@ import { CountryService } from '../shared/country.service';
 export class ContainerComponent implements OnInit {
   countries!: string[];
   numberCovid!: number;
+  objectsCovid!: string[];
 
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
-    this.countryService
-      .getLength()
-      .subscribe((data) => (this.numberCovid = data));
-    this.countryService
-      .getAllNames()
-      .subscribe((data) => (this.countries = data));
+    this.countryService.get().subscribe((data) => {
+      return (
+        (this.numberCovid = Object.keys(data).length),
+        (this.countries = Object.keys(data)),
+        (this.objectsCovid = Object.values(data).map((data) => data.Path))
+      );
+    });
   }
 }
