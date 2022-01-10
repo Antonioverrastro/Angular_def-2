@@ -1,14 +1,14 @@
 <div class="container p-5">
-  <form>
+  <form class="form" #animalForm='ngForm'>
     <div class="d-flex justify-content-center">
-      <select name="animals" id="animals" class="m-3">
+      <select name="animals" id="animals" class="m-3" [(ngModel)]="category">
         <option value="" disabled selected>Choose animal:</option>
         <option value="cats">Cats</option>
         <option value="birds">Birds</option>
         <option value="shibes">Shibes</option>
       </select>
-      <input type="number" placeholder="Type the number of photos:" class="m-3">
-      <button class="m-3" (click)="getImages()">Send</button>
+      <input type="number" placeholder="Type the number of photos:" class="m-3" [(ngModel)]="number">
+      <button class="m-3">Send</button>
     </div>
   </form>
 </div>
