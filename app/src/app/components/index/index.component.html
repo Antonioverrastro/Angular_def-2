@@ -1,0 +1,14 @@
+<div class="container p-5">
+  <form>
+    <div class="d-flex justify-content-center">
+      <select name="animals" id="animals" class="m-3">
+        <option value="" disabled selected>Choose animal:</option>
+        <option value="cats">Cats</option>
+        <option value="birds">Birds</option>
+        <option value="shibes">Shibes</option>
+      </select>
+      <input type="number" placeholder="Type the number of photos:" class="m-3">
+      <button class="m-3" (click)="getImages()">Send</button>
+    </div>
+  </form>
+</div>
